@@ -1,0 +1,14 @@
+"""Targets in the repository root"""
+
+exports_files(
+    [
+        ".rubocop.yml",
+    ],
+    visibility = ["//:__subpackages__"],
+)
+
+# Workaround https://github.com/bazel-contrib/bazel-gazelle/issues/2001
+# gazelle:map_kind proto_library proto_library @protobuf//bazel:proto_library.bzl
+
+# The gazelle binary + `gazelle` runner target live in //tools/gazelle (the
+# default target for `aspect gazelle`). Run `aspect gazelle` to generate BUILDs.
